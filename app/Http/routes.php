@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'news'], function () {
+    Route::get('/', function () {
+        $news = \App\News::all();
+        return view('news.index', ['news' => $news,]);
+    })->name('news.list');
+});
