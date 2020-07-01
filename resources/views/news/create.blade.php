@@ -1,6 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
+<div class="bg-color">
 
     <!-- Bootstrap шаблон... -->
 
@@ -9,30 +10,42 @@
     @include('common.errors')
 
     <!-- Форма новой новости -->
-        <form action="{{ route('news.store') }}" method="POST" class="form-horizontal">
-        {{ csrf_field() }}
+        <div class="container">
+            <form action="{{ route('news.store') }}" method="POST" class="form-horizontal">
+            {{ csrf_field() }}
 
-        <!-- Имя задачи -->
-            <div class="form-group">
-                <label for="news-title" class="col-sm-3 control-label">Новость</label>
+            <!-- Имя задачи -->
+                <div class="form-group p-3">
+                    <h1 class="text-uppercase text-white font-weight-bold">{{ trans('messages.create.add_news') }}</h1>
 
-                <div class="col-sm-6">
-                    <input type="text" name="title" id="news-title" class="form-control">
+                    <div class="col-sm-6 p-3" >
+                        <label for="news-title" class="text-white">{{ trans('messages.create.title') }}</label>
+                        <input type="text" name="title" id="news-title" class="form-control">
+                    </div>
+
+                    <div class="col-sm-6 p-3">
+                        <label for="news-text" class="text-white">{{ trans('messages.create.text') }}</label>
+                        <textarea name="text" class="form-control" rows="5"></textarea>
+                    </div>
                 </div>
 
-                <div class="col-sm-6">
-                    <textarea name="text" class="form-control" rows="5"></textarea>
+                <!-- Кнопка добавления новости -->
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="form-group">
+                        <div class="col-lg-8 align-self-baseline">
+                            <button type="submit" class="btn btn-primary btn-xl js-scroll-trigger">
+                                {{ trans('messages.create.add') }}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-8 align-self-baseline">
+                            <a href="{{route('news.list')}}" class="btn btn-danger btn-xl js-scroll-trigger">{{ trans('messages.create.cancel') }}</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Кнопка добавления новости -->
-            <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-6">
-                    <button type="submit" class="btn btn-default">
-                        <i class="fa fa-plus"></i> Добавить новость
-                    </button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
+</div>
 @endsection

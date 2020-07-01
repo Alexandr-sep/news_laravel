@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('news.main');
 
 Route::group(['prefix' => 'news'], function () {
     Route::get('/', function () {
@@ -31,6 +31,9 @@ Route::group(['prefix' => 'news'], function () {
             'text' => 'required',
         ]);
 
+//        $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); //browser lang
+//        \Illuminate\Support\Facades\App::setLocale($lang); //set lang
+
         if ($validator->fails()) {
             return redirect(route('news.create'))
                 ->withErrors($validator)
@@ -44,4 +47,13 @@ Route::group(['prefix' => 'news'], function () {
 
         return (redirect(route('news.list')));
     })->name('news.store');
+
+    Route::get('/{news}/show', function (\App\News $news) {
+        return view('news.show', ['news' => $news,]);
+    })->name('news.show');
+
+    Route::delete('/{news}', function (\App\News $news) {
+        $news->delete();
+        return redirect(route('news.list'));
+    })->name('news.destroy');
 });

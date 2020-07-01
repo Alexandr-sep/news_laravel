@@ -10164,3 +10164,14 @@ header.masthead h1 {
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75);
 }
+
+/* =========== My style ============ */
+.bg-color {
+  /*background-color: #ffd2b0c2;*/
+  background-color: #4e4239;
+  min-height: 100%;
+}
+
+.size-icon {
+  font-size: 24px;
+}
