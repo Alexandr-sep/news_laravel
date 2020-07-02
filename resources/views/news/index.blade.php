@@ -18,13 +18,6 @@
             </div>
         </div>
     </nav>
-{{--    <div class="container-fluid p-3">--}}
-{{--        <div class="col-lg-8 align-self-baseline">--}}
-{{--            <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{route('news.create')}}">--}}
-{{--                <i class="fa fa-plus"> Добавить новость</i>--}}
-{{--            </a>--}}
-{{--        </div>--}}
-{{--    </div>--}}
     <div class="container">
     @if (count($news) > 0)
         <div class="panel panel-default">
