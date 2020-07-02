@@ -28,5 +28,9 @@ return [
     'show'                  => [
         'go_back' => 'Go back',
     ],
+    'edit'                  => [
+        'edit_news' => 'Edit news',
+        'save' => 'Save',
+    ],
 
 ];

@@ -16,7 +16,7 @@
             {{method_field('PUT')}}
             <!-- Имя задачи -->
                 <div class="form-group p-3">
-                    <h1 class="text-uppercase text-white font-weight-bold">Редактирование новости</h1>
+                    <h1 class="text-uppercase text-white font-weight-bold">{{ trans('messages.edit.edit_news') }}</h1>
 
                     <div class="col-sm-6 p-3" >
                         <label for="news-title" class="text-white">{{ trans('messages.create.title') }}</label>
@@ -34,7 +34,7 @@
                     <div class="form-group">
                         <div class="col-lg-8 align-self-baseline">
                             <button type="submit" class="btn btn-primary btn-xl js-scroll-trigger">
-                                Сохранить
+                                {{ trans('messages.edit.save') }}
                             </button>
                         </div>
                     </div>
