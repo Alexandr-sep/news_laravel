@@ -56,4 +56,26 @@ Route::group(['prefix' => 'news'], function () {
         $news->delete();
         return redirect(route('news.list'));
     })->name('news.destroy');
+
+    Route::get('/{news}/edit', function (\App\News $news) {
+        return view('news.edit', ['news' => $news]);
+    })->name('news.edit');
+
+    Route::put('/{news}', function (\App\News $news, \Illuminate\Http\Request $request) {
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|max:255',
+            'text' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect(route('news.edit', $news->id ))
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $news->title = $request->title;
+        $news->text = $request->text;
+        $news->save();
+
+        return redirect(route('news.list'));
+    })->name('news.update');
 });

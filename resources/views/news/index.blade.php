@@ -46,16 +46,15 @@
                                     </button>
                                 </form>
                             </td>
-
-{{--                            <td>--}}
-{{--                                <form action="{{route('tasks.edit', $one_news->id)}}" method="post">--}}
-{{--                                    {{csrf_field()}}--}}
-{{--                                    {{method_field('GET')}}--}}
-{{--                                    <button class="btn btn-warning">--}}
-{{--                                        <i class="fa fa-edit"></i>--}}
-{{--                                    </button>--}}
-{{--                                </form>--}}
-{{--                            </td>--}}
+                            <td>
+                                <form action="{{route('news.edit', $one_news->id)}}" method="post">
+                                    {{csrf_field()}}
+                                    {{method_field('GET')}}
+                                    <button class="btn btn-warning">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
